@@ -1,7 +1,7 @@
 # Startup configuration of Spring-cloud-kubernetes
 spring:
   application:
-    name: drms-event-to-talend
+    name: spring-sample
   cloud:
     kubernetes:
       config:
@@ -12,4 +12,3 @@ spring:
       secrets:
         enabled: true
         enableApi: true
-        name: sshsecret
