@@ -1,0 +1,15 @@
+# Startup configuration of Spring-cloud-kubernetes
+spring:
+  application:
+    name: drms-event-to-talend
+  cloud:
+    kubernetes:
+      config:
+        name: app-config
+      reload:
+        # Enable live reload on ConfigMap change (disabled for Secrets by default)
+        enabled: true
+      secrets:
+        enabled: true
+        enableApi: true
+        name: sshsecret

@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: drms-event-to-talend
+    
+logging:
+  config: classpath:logback.xml
+
+# lets listen on all ports to ensure we can be invoked from the pod IP
+server:
+  address: 0.0.0.0
+
+management:
+  address: 0.0.0.0
+  security:
+    enabled: false
+
+endpoints:
+  enabled: true
+  health:
+    enabled: true
+
+security:
+  basic:
+    enabled: false
+
+# - Actuator Info
+info:
+  app:
+    name: DRMS-Event-To-Talend
+    description: Template Spring Boot App customized for OpenShift
+    version:  1.0.0
+    runtime-config-type: desktop
+    APPLICATION_NAME: drms-event-to-talend
+    
+# - Active MQ
+amq:
+  brokerurl: failover:(tcp://apldatintd001:61616)
+  username: amq
+  password: amq
+  redeliveryDelay: 1000
+  maximumRedeliveries: 5
+
+cxf:
+  path: /services
+ 
+
+jms:
+  drms-event-to-talend:
+    EnqueueDRMSEventDetails: com.sempra.si.drms.jms.DREventPublicationQueue
+    
+
+
+# the options from org.apache.camel.spring.boot.CamelConfigurationProperties can be configured here
+camel:
+  sringboot:
+    name: drms-event-to-talend
+
+# WebService Configuration
+#soap-ws:
+  #drms-event-to-talend:
+    #SFTPEventDetailsToTalend: sftp://diexecq.sempra.com:22/../talend/data/to_talend
+    #endpoint: http://localhost:8088/mocktest
+    
+   
+# SFTP
+sftp:
+  drms-event-to-talend:
+    host: diexecq.sempra.com
+    port: 22
+    fileDirectory: /to_talend
+    username: di-sftp-fuse
+    #password: talend123!
+    privateKeyFile: /resources/keys/fuse.ppk
+    privateKeyFilePassphrase: fusepass
+    disconnect: true
+    recursive: false
+    stepwise: true
+    passiveMode: true
+    binary: true
+    sshKey: ${SSH_SECRET}
+    
