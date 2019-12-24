@@ -1,2 +1,2 @@
 # spring
-Its a simple SpringBoot REST service
+Its a simple SpringBoot REST service on RedHat Openshift
