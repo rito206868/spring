@@ -19,7 +19,7 @@ spec:
         app: spring
     spec:
       containers:
-              - image: image-registry.openshift-image-registry.svc:5000/tme-oms-channels-integration/spring:latest
+        - image: image-registry.openshift-image-registry.svc:5000/tme-oms-channels-integration/spring:latest
           imagePullPolicy: Always
           name: spring
           ports:
