@@ -12,7 +12,7 @@ public class DemoProjApplication {
 	
 	@RequestMapping("/hello")
 	public String hello(){
-		return "Hello Spring 2019";
+		return "Hello Spring 2020";
 	}
 
 	//Main method to initiate the prog
