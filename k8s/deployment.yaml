@@ -6,6 +6,7 @@ metadata:
       [{"from":{"kind":"ImageStreamTag","name":"spring:latest","namespace":"tme-oms-som"},"fieldPath":"spec.template.spec.containers[?(@.name==\"spring\")].image"}]
   labels:
     app: spring
+    app.kubernetes.io/part-of: tekton-demo-app
   name: spring
 spec:
   replicas: 1
