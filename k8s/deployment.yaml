@@ -1,6 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations: 
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"spring:latest","namespace":"tme-oms-som"},"fieldPath":"spec.template.spec.containers[?(@.name==\"spring\")].image"}]
   labels:
     app: spring
   name: spring
